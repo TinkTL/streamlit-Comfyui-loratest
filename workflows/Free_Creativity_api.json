@@ -1,0 +1,600 @@
+{
+  "8": {
+    "inputs": {
+      "samples": [
+        "20137",
+        0
+      ],
+      "vae": [
+        "520",
+        4
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE解码"
+    }
+  },
+  "520": {
+    "inputs": {
+      "CPipeAny": [
+        "521",
+        0
+      ]
+    },
+    "class_type": "Pipe from any [Crystools]",
+    "_meta": {
+      "title": "🪛 Pipe from any"
+    }
+  },
+  "521": {
+    "inputs": {
+      "any_1": [
+        "20112",
+        0
+      ],
+      "any_2": [
+        "20114",
+        0
+      ],
+      "any_3": [
+        "20115",
+        0
+      ],
+      "any_4": [
+        "20113",
+        0
+      ]
+    },
+    "class_type": "Pipe to/edit any [Crystools]",
+    "_meta": {
+      "title": "🪛 Pipe to/edit any"
+    }
+  },
+  "557": {
+    "inputs": {
+      "save_path": "/srv/http/comfyui-design-association/image_without_background_removed",
+      "timestamp": [
+        "558",
+        0
+      ],
+      "format": "png",
+      "images": [
+        "20193",
+        0
+      ]
+    },
+    "class_type": "SaveImage_Tinktool",
+    "_meta": {
+      "title": "Save Image(Tinktool)"
+    }
+  },
+  "558": {
+    "inputs": {},
+    "class_type": "Random_Filename",
+    "_meta": {
+      "title": "Random Filename"
+    }
+  },
+  "10000": {
+    "inputs": {
+      "string": "设计一个哑光口红管，背景是在沙滩上"
+    },
+    "class_type": "String Literal (Image Saver)",
+    "_meta": {
+      "title": "String Literal (Image Saver)"
+    }
+  },
+  "10001": {
+    "inputs": {
+      "noise_seed": 419976884518990
+    },
+    "class_type": "RandomNoise",
+    "_meta": {
+      "title": "随机噪波"
+    }
+  },
+  "20002": {
+    "inputs": {
+      "text": "https://da.ai.lainuoniao.cn:4443/image_without_background_removed/1756196180042244728_0.png",
+      "anything": [
+        "557",
+        0
+      ]
+    },
+    "class_type": "easy showAnything",
+    "_meta": {
+      "title": "展示任何"
+    }
+  },
+  "20100": {
+    "inputs": {
+      "width": 1080,
+      "height": 1080,
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "空Latent图像"
+    }
+  },
+  "20101": {
+    "inputs": {
+      "images": [
+        "20193",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "预览图像"
+    }
+  },
+  "20109": {
+    "inputs": {
+      "unet_name": "FLUX.1-unet-rhinobird-beauty-ecommerce-v1.safetensors",
+      "weight_dtype": "fp8_e4m3fn"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "UNet加载器"
+    }
+  },
+  "20110": {
+    "inputs": {
+      "lora_name": "FLUX.1-loras-rhinobird-beauty-ecommerce-v1.safetensors",
+      "strength_model": 0.8000000000000002,
+      "strength_clip": 0.8000000000000002,
+      "model": [
+        "20109",
+        0
+      ],
+      "clip": [
+        "20111",
+        0
+      ]
+    },
+    "class_type": "LoraLoader",
+    "_meta": {
+      "title": "加载LoRA"
+    }
+  },
+  "20111": {
+    "inputs": {
+      "clip_name1": "clip_l.safetensors",
+      "clip_name2": "t5xxl_fp16.safetensors",
+      "type": "flux",
+      "device": "default"
+    },
+    "class_type": "DualCLIPLoader",
+    "_meta": {
+      "title": "双CLIP加载器"
+    }
+  },
+  "20112": {
+    "inputs": {
+      "object_to_patch": "diffusion_model",
+      "residual_diff_threshold": 0.12000000000000002,
+      "start": 0,
+      "end": 1,
+      "max_consecutive_cache_hits": -1,
+      "model": [
+        "20139",
+        0
+      ]
+    },
+    "class_type": "ApplyFBCacheOnModel",
+    "_meta": {
+      "title": "Apply First Block Cache"
+    }
+  },
+  "20113": {
+    "inputs": {
+      "vae_name": "ae.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "加载VAE"
+    }
+  },
+  "20114": {
+    "inputs": {
+      "text": [
+        "20186",
+        0
+      ],
+      "clip": [
+        "20140",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP文本编码"
+    }
+  },
+  "20115": {
+    "inputs": {
+      "conditioning": [
+        "20114",
+        0
+      ]
+    },
+    "class_type": "ConditioningZeroOut",
+    "_meta": {
+      "title": "条件零化"
+    }
+  },
+  "20133": {
+    "inputs": {
+      "scheduler": "sgm_uniform",
+      "steps": 28,
+      "denoise": 1,
+      "model": [
+        "520",
+        1
+      ]
+    },
+    "class_type": "BasicScheduler",
+    "_meta": {
+      "title": "基本调度器"
+    }
+  },
+  "20134": {
+    "inputs": {
+      "sampler_name": "uni_pc_bh2"
+    },
+    "class_type": "KSamplerSelect",
+    "_meta": {
+      "title": "K采样器选择"
+    }
+  },
+  "20135": {
+    "inputs": {
+      "cfg": 1,
+      "model": [
+        "520",
+        1
+      ],
+      "positive": [
+        "520",
+        2
+      ],
+      "negative": [
+        "520",
+        3
+      ]
+    },
+    "class_type": "CFGGuider",
+    "_meta": {
+      "title": "CFG引导器"
+    }
+  },
+  "20137": {
+    "inputs": {
+      "noise": [
+        "10001",
+        0
+      ],
+      "guider": [
+        "20135",
+        0
+      ],
+      "sampler": [
+        "20134",
+        0
+      ],
+      "sigmas": [
+        "20133",
+        0
+      ],
+      "latent_image": [
+        "20100",
+        0
+      ]
+    },
+    "class_type": "SamplerCustomAdvanced",
+    "_meta": {
+      "title": "自定义采样器（高级）"
+    }
+  },
+  "20138": {
+    "inputs": {
+      "lora_name": "eye-shadow-box1.0.safetensors",
+      "strength_model": 0.25,
+      "strength_clip": 0.25,
+      "model": [
+        "20110",
+        0
+      ],
+      "clip": [
+        "20110",
+        1
+      ]
+    },
+    "class_type": "LoraLoader",
+    "_meta": {
+      "title": "加载LoRA"
+    }
+  },
+  "20139": {
+    "inputs": {
+      "index": [
+        "20180",
+        0
+      ],
+      "value0": [
+        "20110",
+        0
+      ],
+      "value1": [
+        "20110",
+        0
+      ],
+      "value2": [
+        "20138",
+        0
+      ],
+      "value3": [
+        "20110",
+        0
+      ],
+      "value4": [
+        "20110",
+        0
+      ],
+      "value5": [
+        "20149",
+        0
+      ]
+    },
+    "class_type": "easy anythingIndexSwitch",
+    "_meta": {
+      "title": "编号切换"
+    }
+  },
+  "20140": {
+    "inputs": {
+      "index": [
+        "20180",
+        0
+      ],
+      "value0": [
+        "20110",
+        1
+      ],
+      "value1": [
+        "20110",
+        1
+      ],
+      "value2": [
+        "20138",
+        1
+      ],
+      "value3": [
+        "20110",
+        1
+      ],
+      "value4": [
+        "20110",
+        1
+      ],
+      "value5": [
+        "20149",
+        1
+      ]
+    },
+    "class_type": "easy anythingIndexSwitch",
+    "_meta": {
+      "title": "编号切换"
+    }
+  },
+  "20149": {
+    "inputs": {
+      "lora_name": "facial-mask1.0.safetensors",
+      "strength_model": 0.1,
+      "strength_clip": 0.1,
+      "model": [
+        "20151",
+        0
+      ],
+      "clip": [
+        "20151",
+        1
+      ]
+    },
+    "class_type": "LoraLoader",
+    "_meta": {
+      "title": "加载LoRA"
+    }
+  },
+  "20151": {
+    "inputs": {
+      "lora_name": "FLUX.1-loras-rhinobird-beauty-ecommerce-v1.safetensors",
+      "strength_model": 0.5,
+      "strength_clip": 0.5,
+      "model": [
+        "20109",
+        0
+      ],
+      "clip": [
+        "20111",
+        0
+      ]
+    },
+    "class_type": "LoraLoader",
+    "_meta": {
+      "title": "加载LoRA"
+    }
+  },
+  "20157": {
+    "inputs": {
+      "string": "testID:{ID-Key}\n系统提示：化妆品包装视觉文案撰写人\n\n你是一名包装设计描述助手。给输入内容作为产品（类型及任何提示信息），撰写一段自然流畅、可直接用于广告的英文描述，使其读起来如同一张高清产品照片的说明文字。仅聚焦于产品及其包装呈现（输入的产品类型、标签、颜色 / 渐变、纹理、标志 / 字体、摆放位置、背景、光线、氛围）。不要提及模型训练、提示词、相机或参数。\n\n输入信息（可能不完整）：\n\n产品类型（必填）：根据输入的产品类型填入此项\n产品提示（可选）：材质、颜色走向、图案、特点（例如，“塑料质感”、“底部渐变”）\n主题风格（可选）：根据输入内容确定主题风格，若没有则自创一个符合该产品的设计风格。\n品牌名称（必选）：若缺失，自创一个简短的大写品牌名（例如，“SMOOTHLY”、“LUXORA”）\n产品展示名称（可选）：若缺失，自创一个与产品相符的简洁名称\n\n输出要求：\n\n语言：英文\n形式：一段连贯的文字（120-170 词）。无项目符号、无引号、无标题\n语气与风格：平静、精准、优雅、描述性（如同奢华产品文案）。避免比喻性的拟人手法\n品牌与命名规则：\n若提供品牌名称，在标签上以全大写形式呈现\n若未提供，创建一个大写品牌名（一个词）和一个简洁的产品名称\n在标签文字中同时显示两者（例如，“标签上有白色文字：BRAND 和‘产品名称’”）\n\n框架（指南，不要输出标题）：\n\n第 1 句：说明这是一张 <产品> 的高清照片\n第 2 句：标签文字，包含可见的品牌（全大写）+ 产品名称\n第 3 句：主题风格描述\n第 4 句：色彩搭配说+产品的工艺+材质+设计内容 + 氛围\n第 5 句：根据输入的内容决定背景及场景，若内容中没有背景描述，则贴合内容自创一个背景\n\n最终指令：仅输出符合上述风格的英文段落。"
+    },
+    "class_type": "String Literal (Image Saver)",
+    "_meta": {
+      "title": "String Literal (Image Saver)"
+    }
+  },
+  "20158": {
+    "inputs": {
+      "system_content": [
+        "20163",
+        0
+      ],
+      "user_content": [
+        "10000",
+        0
+      ]
+    },
+    "class_type": "ZhipuAI_Chat",
+    "_meta": {
+      "title": "Zhipu AI Chat"
+    }
+  },
+  "20163": {
+    "inputs": {
+      "find": "{ID-Key}",
+      "replace": [
+        "20164",
+        0
+      ],
+      "text": [
+        "20157",
+        0
+      ]
+    },
+    "class_type": "Text Find and Replace",
+    "_meta": {
+      "title": "Text Find and Replace"
+    }
+  },
+  "20164": {
+    "inputs": {},
+    "class_type": "Random_Filename",
+    "_meta": {
+      "title": "Random Filename"
+    }
+  },
+  "20177": {
+    "inputs": {
+      "delimiter": ",",
+      "clean_whitespace": "false",
+      "text_a": [
+        "10000",
+        0
+      ],
+      "text_b": [
+        "20158",
+        0
+      ]
+    },
+    "class_type": "Text Concatenate",
+    "_meta": {
+      "title": "Text Concatenate"
+    }
+  },
+  "20178": {
+    "inputs": {
+      "system_content": [
+        "20179",
+        0
+      ],
+      "user_content": [
+        "10000",
+        0
+      ]
+    },
+    "class_type": "ZhipuAI_Chat",
+    "_meta": {
+      "title": "Zhipu AI Chat"
+    }
+  },
+  "20179": {
+    "inputs": {
+      "string": "你是一个产品类型筛选专家。你的任务是从用户输入的自然语言中，准确识别并仅输出一个最匹配的产品类型名称。\n\n产品类型定义：\n1.[窄口瓶]类型包括:\n沐浴露瓶\\洗发水瓶\\护发素瓶\\精华液瓶\\爽肤水瓶\\乳液瓶\\卸妆水瓶\\香水瓶\\精油瓶\n2.[广口瓶]类型包括:\n面霜瓶\\身体乳瓶\\发膜瓶\\面膜霜瓶\\护手霜瓶\\眼霜瓶\\按摩膏瓶\\磨砂膏瓶\n3.[盒类]类型包括:\n化妆品礼盒\\面膜盒\\香水盒\\眼影盒\\粉饼盒\\腮红盒\\散粉盒\\护肤品套装盒\\首饰盒样式包装\n4.[口红]类型包括:\n传统管状口红\\液体唇釉管\\唇膏笔\\唇线笔\\唇彩管\\润唇膏管\\哑光口红管\\珠光口红管\n5.[笔管]类型包括:\n眼线笔\\眉笔\\睫毛膏管\\遮瑕笔\\修容笔\\高光笔\\眼影棒\\BB霜笔\\粉底液笔\n6.[面膜]类型包括:\n片状面膜包装\n泥膜罐装\\睡眠面膜包装\\水洗面膜包装\\撕拉面膜包装\\眼膜包装\\鼻贴包装\\面膜纸单片包装\\补水面膜包装\n7.[软管]类型包括:\n牙膏管\\洗面奶管\\防晒霜管\\BB霜管\\CC霜管\\粉底液管\\手霜管\\足霜管\\染发剂管\\护发素管\n\n\n输出要求：\n1. 只输出一个产品类型名称\n2. 不要添加任何解释或额外文字\n3. 如果无法确定类型，输出\"未知\"\n\n示例输入和输出：\n输入：\"我想要一个装眉笔的包装\"\n输出：笔管\n\n输入：\"这个面霜需要什么包装？\"\n输出：广口瓶\n\n输入：\"帮我设计一个睫毛膏的包装\"\n输出：笔管\n\n输入：\"防晒霜包装设计\"\n输出：软管\n\n输入：\"设计一个面膜包装\"\n输出：面膜"
+    },
+    "class_type": "String Literal (Image Saver)",
+    "_meta": {
+      "title": "String Literal (Image Saver)"
+    }
+  },
+  "20180": {
+    "inputs": {
+      "input_string": [
+        "20178",
+        0
+      ],
+      "option0": "窄口瓶",
+      "option1": "广口瓶",
+      "option2": "盒类",
+      "option3": "口红",
+      "option4": "笔管",
+      "option5": "面膜",
+      "option6": "",
+      "option7": "",
+      "option8": "",
+      "option9": ""
+    },
+    "class_type": "StringMatcher",
+    "_meta": {
+      "title": "String Matcher"
+    }
+  },
+  "20185": {
+    "inputs": {
+      "text": "3",
+      "anything": [
+        "20180",
+        0
+      ]
+    },
+    "class_type": "easy showAnything",
+    "_meta": {
+      "title": "展示任何"
+    }
+  },
+  "20186": {
+    "inputs": {
+      "text": [
+        "20177",
+        0
+      ]
+    },
+    "class_type": "baiduTranslate",
+    "_meta": {
+      "title": "baiduTranslate"
+    }
+  },
+  "20191": {
+    "inputs": {
+      "text": "设计一个哑光口红管，背景是在沙滩上,This is a high-definition image of a matte lipstick tube. The label features bold, uppercase text reading \"SILKYMATTE\" and \"Shade Essential.\" The packaging exudes a minimalist, chic aesthetic, perfect for the modern woman on-the-go. The lipstick's soft, muted color palette complements the sleek design, crafted with high-quality ingredients and a smooth, non-reflective finish. The scene is set on a serene beach, with gentle waves in the background, evoking a sense of relaxation and natural beauty.",
+      "anything": [
+        "20186",
+        0
+      ]
+    },
+    "class_type": "easy showAnything",
+    "_meta": {
+      "title": "展示任何"
+    }
+  },
+  "20193": {
+    "inputs": {
+      "text": "AI生成",
+      "font_path": "input/DREAMHANSANSCN-W16.TTF",
+      "position": "top_right",
+      "margin": 0.02,
+      "scale_ratio": 0.12,
+      "opacity": 0.3,
+      "image": [
+        "8",
+        0
+      ]
+    },
+    "class_type": "TextWatermarkNode",
+    "_meta": {
+      "title": "Text Watermark"
+    }
+  }
+}
