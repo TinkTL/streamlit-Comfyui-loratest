@@ -83,7 +83,7 @@ def show_history():
             try:
                 img_path = os.path.join(HISTORY_IMG_DIR, record['image_path'])
                 if os.path.exists(img_path):
-                    with st.expander(f"记录时间: {record['timestamp']}"):
+                    with st.expander(f"生成时间: {record['timestamp']}"):
                         st.image(
                             Image.open(img_path),
                             caption=record['text'],

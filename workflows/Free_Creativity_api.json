@@ -53,7 +53,7 @@
   },
   "557": {
     "inputs": {
-      "save_path": "/srv/http/comfyui-design-association/image_without_background_removed",
+      "save_path": "/srv/http/comfyui-package-design/image_without_background_removed",
       "timestamp": [
         "558",
         0
@@ -78,7 +78,13 @@
   },
   "10000": {
     "inputs": {
-      "string": "设计一个哑光口红管，背景是在沙滩上"
+      "string": "设计一个哑光口红管，背景是在沙滩上",
+      "speak_and_recognation": {
+        "__value__": [
+          false,
+          true
+        ]
+      }
     },
     "class_type": "String Literal (Image Saver)",
     "_meta": {
@@ -87,7 +93,7 @@
   },
   "10001": {
     "inputs": {
-      "noise_seed": 419976884518990
+      "noise_seed": 754406836883254
     },
     "class_type": "RandomNoise",
     "_meta": {
@@ -96,7 +102,7 @@
   },
   "20002": {
     "inputs": {
-      "text": "https://da.ai.lainuoniao.cn:4443/image_without_background_removed/1756196180042244728_0.png",
+      "text": "https://da.ai.lainuoniao.cn:4443/image_without_background_removed/1757501174535778435_0.png",
       "anything": [
         "557",
         0
@@ -203,6 +209,12 @@
         "20186",
         0
       ],
+      "speak_and_recognation": {
+        "__value__": [
+          false,
+          true
+        ]
+      },
       "clip": [
         "20140",
         0
@@ -304,11 +316,11 @@
       "strength_model": 0.25,
       "strength_clip": 0.25,
       "model": [
-        "20110",
+        "20194",
         0
       ],
       "clip": [
-        "20110",
+        "20194",
         1
       ]
     },
@@ -324,11 +336,11 @@
         0
       ],
       "value0": [
-        "20110",
+        "20194",
         0
       ],
       "value1": [
-        "20110",
+        "20194",
         0
       ],
       "value2": [
@@ -336,11 +348,11 @@
         0
       ],
       "value3": [
-        "20110",
+        "20194",
         0
       ],
       "value4": [
-        "20110",
+        "20194",
         0
       ],
       "value5": [
@@ -360,11 +372,11 @@
         0
       ],
       "value0": [
-        "20110",
+        "20194",
         1
       ],
       "value1": [
-        "20110",
+        "20194",
         1
       ],
       "value2": [
@@ -372,11 +384,11 @@
         1
       ],
       "value3": [
-        "20110",
+        "20194",
         1
       ],
       "value4": [
-        "20110",
+        "20194",
         1
       ],
       "value5": [
@@ -395,11 +407,11 @@
       "strength_model": 0.1,
       "strength_clip": 0.1,
       "model": [
-        "20151",
+        "20195",
         0
       ],
       "clip": [
-        "20151",
+        "20195",
         1
       ]
     },
@@ -429,7 +441,13 @@
   },
   "20157": {
     "inputs": {
-      "string": "testID:{ID-Key}\n系统提示：化妆品包装视觉文案撰写人\n\n你是一名包装设计描述助手。给输入内容作为产品（类型及任何提示信息），撰写一段自然流畅、可直接用于广告的英文描述，使其读起来如同一张高清产品照片的说明文字。仅聚焦于产品及其包装呈现（输入的产品类型、标签、颜色 / 渐变、纹理、标志 / 字体、摆放位置、背景、光线、氛围）。不要提及模型训练、提示词、相机或参数。\n\n输入信息（可能不完整）：\n\n产品类型（必填）：根据输入的产品类型填入此项\n产品提示（可选）：材质、颜色走向、图案、特点（例如，“塑料质感”、“底部渐变”）\n主题风格（可选）：根据输入内容确定主题风格，若没有则自创一个符合该产品的设计风格。\n品牌名称（必选）：若缺失，自创一个简短的大写品牌名（例如，“SMOOTHLY”、“LUXORA”）\n产品展示名称（可选）：若缺失，自创一个与产品相符的简洁名称\n\n输出要求：\n\n语言：英文\n形式：一段连贯的文字（120-170 词）。无项目符号、无引号、无标题\n语气与风格：平静、精准、优雅、描述性（如同奢华产品文案）。避免比喻性的拟人手法\n品牌与命名规则：\n若提供品牌名称，在标签上以全大写形式呈现\n若未提供，创建一个大写品牌名（一个词）和一个简洁的产品名称\n在标签文字中同时显示两者（例如，“标签上有白色文字：BRAND 和‘产品名称’”）\n\n框架（指南，不要输出标题）：\n\n第 1 句：说明这是一张 <产品> 的高清照片\n第 2 句：标签文字，包含可见的品牌（全大写）+ 产品名称\n第 3 句：主题风格描述\n第 4 句：色彩搭配说+产品的工艺+材质+设计内容 + 氛围\n第 5 句：根据输入的内容决定背景及场景，若内容中没有背景描述，则贴合内容自创一个背景\n\n最终指令：仅输出符合上述风格的英文段落。"
+      "string": "testID:{ID-Key}\n系统提示：化妆品包装视觉文案撰写人\n\n你是一名包装设计描述助手。给输入内容作为产品（类型及任何提示信息），撰写一段自然流畅、可直接用于广告的英文描述，使其读起来如同一张高清产品照片的说明文字。仅聚焦于产品及其包装呈现（输入的产品类型、标签、颜色 / 渐变、纹理、标志 / 字体、摆放位置、背景、光线、氛围）。不要提及模型训练、提示词、相机或参数。\n\n输入信息（可能不完整）：\n\n产品类型（必填）：根据输入的产品类型填入此项\n产品提示（可选）：材质、颜色走向、图案、特点（例如，“塑料质感”、“底部渐变”）\n主题风格（可选）：根据输入内容确定主题风格，若没有则自创一个符合该产品的设计风格。\n品牌名称（必选）：若缺失，自创一个简短的大写品牌名（例如，“SMOOTHLY”、“LUXORA”）\n产品展示名称（可选）：若缺失，自创一个与产品相符的简洁名称\n\n输出要求：\n\n语言：英文\n形式：一段连贯的文字（120-170 词）。无项目符号、无引号、无标题\n语气与风格：平静、精准、优雅、描述性（如同奢华产品文案）。避免比喻性的拟人手法\n品牌与命名规则：\n若提供品牌名称，在标签上以全大写形式呈现\n若未提供，创建一个大写品牌名（一个词）和一个简洁的产品名称\n在标签文字中同时显示两者（例如，“标签上有白色文字：BRAND 和‘产品名称’”）\n\n框架（指南，不要输出标题）：\n\n第 1 句：说明这是一张 <产品> 的高清照片\n第 2 句：标签文字，包含可见的品牌（全大写）+ 产品名称\n第 3 句：主题风格描述\n第 4 句：色彩搭配说+产品的工艺+材质+设计内容 + 氛围\n第 5 句：根据输入的内容决定背景及场景，若内容中没有背景描述，则贴合内容自创一个背景\n\n最终指令：仅输出符合上述风格的英文段落。",
+      "speak_and_recognation": {
+        "__value__": [
+          false,
+          true
+        ]
+      }
     },
     "class_type": "String Literal (Image Saver)",
     "_meta": {
@@ -445,7 +463,13 @@
       "user_content": [
         "10000",
         0
-      ]
+      ],
+      "speak_and_recognation": {
+        "__value__": [
+          false,
+          true
+        ]
+      }
     },
     "class_type": "ZhipuAI_Chat",
     "_meta": {
@@ -503,7 +527,13 @@
       "user_content": [
         "10000",
         0
-      ]
+      ],
+      "speak_and_recognation": {
+        "__value__": [
+          false,
+          true
+        ]
+      }
     },
     "class_type": "ZhipuAI_Chat",
     "_meta": {
@@ -512,7 +542,13 @@
   },
   "20179": {
     "inputs": {
-      "string": "你是一个产品类型筛选专家。你的任务是从用户输入的自然语言中，准确识别并仅输出一个最匹配的产品类型名称。\n\n产品类型定义：\n1.[窄口瓶]类型包括:\n沐浴露瓶\\洗发水瓶\\护发素瓶\\精华液瓶\\爽肤水瓶\\乳液瓶\\卸妆水瓶\\香水瓶\\精油瓶\n2.[广口瓶]类型包括:\n面霜瓶\\身体乳瓶\\发膜瓶\\面膜霜瓶\\护手霜瓶\\眼霜瓶\\按摩膏瓶\\磨砂膏瓶\n3.[盒类]类型包括:\n化妆品礼盒\\面膜盒\\香水盒\\眼影盒\\粉饼盒\\腮红盒\\散粉盒\\护肤品套装盒\\首饰盒样式包装\n4.[口红]类型包括:\n传统管状口红\\液体唇釉管\\唇膏笔\\唇线笔\\唇彩管\\润唇膏管\\哑光口红管\\珠光口红管\n5.[笔管]类型包括:\n眼线笔\\眉笔\\睫毛膏管\\遮瑕笔\\修容笔\\高光笔\\眼影棒\\BB霜笔\\粉底液笔\n6.[面膜]类型包括:\n片状面膜包装\n泥膜罐装\\睡眠面膜包装\\水洗面膜包装\\撕拉面膜包装\\眼膜包装\\鼻贴包装\\面膜纸单片包装\\补水面膜包装\n7.[软管]类型包括:\n牙膏管\\洗面奶管\\防晒霜管\\BB霜管\\CC霜管\\粉底液管\\手霜管\\足霜管\\染发剂管\\护发素管\n\n\n输出要求：\n1. 只输出一个产品类型名称\n2. 不要添加任何解释或额外文字\n3. 如果无法确定类型，输出\"未知\"\n\n示例输入和输出：\n输入：\"我想要一个装眉笔的包装\"\n输出：笔管\n\n输入：\"这个面霜需要什么包装？\"\n输出：广口瓶\n\n输入：\"帮我设计一个睫毛膏的包装\"\n输出：笔管\n\n输入：\"防晒霜包装设计\"\n输出：软管\n\n输入：\"设计一个面膜包装\"\n输出：面膜"
+      "string": "你是一个产品类型筛选专家。你的任务是从用户输入的自然语言中，准确识别并仅输出一个最匹配的产品类型名称。\n\n产品类型定义：\n1.[窄口瓶]类型包括:\n沐浴露瓶\\洗发水瓶\\护发素瓶\\精华液瓶\\爽肤水瓶\\乳液瓶\\卸妆水瓶\\香水瓶\\精油瓶\n2.[广口瓶]类型包括:\n面霜瓶\\身体乳瓶\\发膜瓶\\面膜霜瓶\\护手霜瓶\\眼霜瓶\\按摩膏瓶\\磨砂膏瓶\n3.[盒类]类型包括:\n化妆品礼盒\\面膜盒\\香水盒\\眼影盒\\粉饼盒\\腮红盒\\散粉盒\\护肤品套装盒\\首饰盒样式包装\n4.[口红]类型包括:\n传统管状口红\\液体唇釉管\\唇膏笔\\唇线笔\\唇彩管\\润唇膏管\\哑光口红管\\珠光口红管\n5.[笔管]类型包括:\n眼线笔\\眉笔\\睫毛膏管\\遮瑕笔\\修容笔\\高光笔\\眼影棒\\BB霜笔\\粉底液笔\n6.[面膜]类型包括:\n片状面膜包装\n泥膜罐装\\睡眠面膜包装\\水洗面膜包装\\撕拉面膜包装\\眼膜包装\\鼻贴包装\\面膜纸单片包装\\补水面膜包装\n7.[软管]类型包括:\n牙膏管\\洗面奶管\\防晒霜管\\BB霜管\\CC霜管\\粉底液管\\手霜管\\足霜管\\染发剂管\\护发素管\n\n\n输出要求：\n1. 只输出一个产品类型名称\n2. 不要添加任何解释或额外文字\n3. 如果无法确定类型，输出\"未知\"\n\n示例输入和输出：\n输入：\"我想要一个装眉笔的包装\"\n输出：笔管\n\n输入：\"这个面霜需要什么包装？\"\n输出：广口瓶\n\n输入：\"帮我设计一个睫毛膏的包装\"\n输出：笔管\n\n输入：\"防晒霜包装设计\"\n输出：软管\n\n输入：\"设计一个面膜包装\"\n输出：面膜",
+      "speak_and_recognation": {
+        "__value__": [
+          false,
+          true
+        ]
+      }
     },
     "class_type": "String Literal (Image Saver)",
     "_meta": {
@@ -559,7 +595,13 @@
       "text": [
         "20177",
         0
-      ]
+      ],
+      "speak_and_recognation": {
+        "__value__": [
+          false,
+          true
+        ]
+      }
     },
     "class_type": "baiduTranslate",
     "_meta": {
@@ -568,7 +610,7 @@
   },
   "20191": {
     "inputs": {
-      "text": "设计一个哑光口红管，背景是在沙滩上,This is a high-definition image of a matte lipstick tube. The label features bold, uppercase text reading \"SILKYMATTE\" and \"Shade Essential.\" The packaging exudes a minimalist, chic aesthetic, perfect for the modern woman on-the-go. The lipstick's soft, muted color palette complements the sleek design, crafted with high-quality ingredients and a smooth, non-reflective finish. The scene is set on a serene beach, with gentle waves in the background, evoking a sense of relaxation and natural beauty.",
+      "text": "Design a matte red tube with a background on the beach, This is a high-definition photo of a matte lipstick tube. The label features white text that reads: VELVETtouch 'Sun-Kissed Flush.' The design exudes an effortless chic theme with its soft, tactile finish. The color palette is a harmonious blend of warm, sandy tones, crafted meticulously from high-quality materials. The lipstick's sleek design and the subtle shimmer of its packaging evoke a serene and luxurious ambiance. Set against the backdrop of a sun-drenched beach, the lipstick tube appears both sophisticated and at ease, inviting you to indulge in its timeless elegance.",
       "anything": [
         "20186",
         0
@@ -595,6 +637,44 @@
     "class_type": "TextWatermarkNode",
     "_meta": {
       "title": "Text Watermark"
+    }
+  },
+  "20194": {
+    "inputs": {
+      "lora_name": "MINISO.safetensors",
+      "strength_model": 0.5,
+      "strength_clip": 0.5,
+      "model": [
+        "20110",
+        0
+      ],
+      "clip": [
+        "20110",
+        1
+      ]
+    },
+    "class_type": "LoraLoader",
+    "_meta": {
+      "title": "加载LoRA"
+    }
+  },
+  "20195": {
+    "inputs": {
+      "lora_name": "MINISO.safetensors",
+      "strength_model": 0.5,
+      "strength_clip": 0.5,
+      "model": [
+        "20151",
+        0
+      ],
+      "clip": [
+        "20151",
+        1
+      ]
+    },
+    "class_type": "LoraLoader",
+    "_meta": {
+      "title": "加载LoRA"
     }
   }
 }
