@@ -1,680 +1,3084 @@
 {
-  "8": {
-    "inputs": {
-      "samples": [
-        "20137",
-        0
+  "id": "d25a7dd9-b5ae-4947-a5f4-986f977581ff",
+  "revision": 0,
+  "last_node_id": 20195,
+  "last_link_id": 1667,
+  "nodes": [
+    {
+      "id": 8,
+      "type": "VAEDecode",
+      "pos": [
+        1770.6812744140625,
+        -1034.261962890625
       ],
-      "vae": [
-        "520",
-        4
-      ]
-    },
-    "class_type": "VAEDecode",
-    "_meta": {
-      "title": "VAE解码"
-    }
-  },
-  "520": {
-    "inputs": {
-      "CPipeAny": [
-        "521",
-        0
-      ]
-    },
-    "class_type": "Pipe from any [Crystools]",
-    "_meta": {
-      "title": "🪛 Pipe from any"
-    }
-  },
-  "521": {
-    "inputs": {
-      "any_1": [
-        "20112",
-        0
+      "size": [
+        210,
+        46
       ],
-      "any_2": [
-        "20114",
-        0
+      "flags": {},
+      "order": 32,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "samples",
+          "name": "samples",
+          "type": "LATENT",
+          "link": 1514
+        },
+        {
+          "label": "vae",
+          "name": "vae",
+          "type": "VAE",
+          "link": 1077
+        }
       ],
-      "any_3": [
-        "20115",
-        0
+      "outputs": [
+        {
+          "label": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            1649
+          ]
+        }
       ],
-      "any_4": [
-        "20113",
-        0
-      ]
-    },
-    "class_type": "Pipe to/edit any [Crystools]",
-    "_meta": {
-      "title": "🪛 Pipe to/edit any"
-    }
-  },
-  "557": {
-    "inputs": {
-      "save_path": "/srv/http/comfyui-package-design/image_without_background_removed",
-      "timestamp": [
-        "558",
-        0
-      ],
-      "format": "png",
-      "images": [
-        "20193",
-        0
-      ]
-    },
-    "class_type": "SaveImage_Tinktool",
-    "_meta": {
-      "title": "Save Image(Tinktool)"
-    }
-  },
-  "558": {
-    "inputs": {},
-    "class_type": "Random_Filename",
-    "_meta": {
-      "title": "Random Filename"
-    }
-  },
-  "10000": {
-    "inputs": {
-      "string": "设计一个哑光口红管，背景是在沙滩上",
-      "speak_and_recognation": {
-        "__value__": [
-          false,
-          true
-        ]
-      }
-    },
-    "class_type": "String Literal (Image Saver)",
-    "_meta": {
-      "title": "String Literal (Image Saver)"
-    }
-  },
-  "10001": {
-    "inputs": {
-      "noise_seed": 754406836883254
-    },
-    "class_type": "RandomNoise",
-    "_meta": {
-      "title": "随机噪波"
-    }
-  },
-  "20002": {
-    "inputs": {
-      "text": "https://da.ai.lainuoniao.cn:4443/image_without_background_removed/1757501174535778435_0.png",
-      "anything": [
-        "557",
-        0
-      ]
-    },
-    "class_type": "easy showAnything",
-    "_meta": {
-      "title": "展示任何"
-    }
-  },
-  "20100": {
-    "inputs": {
-      "width": 1080,
-      "height": 1080,
-      "batch_size": 1
-    },
-    "class_type": "EmptyLatentImage",
-    "_meta": {
-      "title": "空Latent图像"
-    }
-  },
-  "20101": {
-    "inputs": {
-      "images": [
-        "20193",
-        0
-      ]
-    },
-    "class_type": "PreviewImage",
-    "_meta": {
-      "title": "预览图像"
-    }
-  },
-  "20109": {
-    "inputs": {
-      "unet_name": "FLUX.1-unet-rhinobird-beauty-ecommerce-v1.safetensors",
-      "weight_dtype": "fp8_e4m3fn"
-    },
-    "class_type": "UNETLoader",
-    "_meta": {
-      "title": "UNet加载器"
-    }
-  },
-  "20110": {
-    "inputs": {
-      "lora_name": "FLUX.1-loras-rhinobird-beauty-ecommerce-v1.safetensors",
-      "strength_model": 0.8000000000000002,
-      "strength_clip": 0.8000000000000002,
-      "model": [
-        "20109",
-        0
-      ],
-      "clip": [
-        "20111",
-        0
-      ]
-    },
-    "class_type": "LoraLoader",
-    "_meta": {
-      "title": "加载LoRA"
-    }
-  },
-  "20111": {
-    "inputs": {
-      "clip_name1": "clip_l.safetensors",
-      "clip_name2": "t5xxl_fp16.safetensors",
-      "type": "flux",
-      "device": "default"
-    },
-    "class_type": "DualCLIPLoader",
-    "_meta": {
-      "title": "双CLIP加载器"
-    }
-  },
-  "20112": {
-    "inputs": {
-      "object_to_patch": "diffusion_model",
-      "residual_diff_threshold": 0.12000000000000002,
-      "start": 0,
-      "end": 1,
-      "max_consecutive_cache_hits": -1,
-      "model": [
-        "20139",
-        0
-      ]
-    },
-    "class_type": "ApplyFBCacheOnModel",
-    "_meta": {
-      "title": "Apply First Block Cache"
-    }
-  },
-  "20113": {
-    "inputs": {
-      "vae_name": "ae.safetensors"
-    },
-    "class_type": "VAELoader",
-    "_meta": {
-      "title": "加载VAE"
-    }
-  },
-  "20114": {
-    "inputs": {
-      "text": [
-        "20186",
-        0
-      ],
-      "speak_and_recognation": {
-        "__value__": [
-          false,
-          true
-        ]
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.36",
+        "Node name for S&R": "VAEDecode",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
       },
-      "clip": [
-        "20140",
-        0
+      "widgets_values": []
+    },
+    {
+      "id": 520,
+      "type": "Pipe from any [Crystools]",
+      "pos": [
+        151.74147033691406,
+        -1029.349853515625
+      ],
+      "size": [
+        216.59999084472656,
+        146
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "CPipeAny",
+          "name": "CPipeAny",
+          "type": "CPipeAny",
+          "link": 1073
+        }
+      ],
+      "outputs": [
+        {
+          "label": "CPipeAny",
+          "name": "CPipeAny",
+          "type": "CPipeAny",
+          "links": null
+        },
+        {
+          "label": "any_1",
+          "name": "any_1",
+          "type": "*",
+          "slot_index": 1,
+          "links": [
+            1475,
+            1510,
+            1511
+          ]
+        },
+        {
+          "label": "any_2",
+          "name": "any_2",
+          "type": "*",
+          "slot_index": 2,
+          "links": [
+            1585
+          ]
+        },
+        {
+          "label": "any_3",
+          "name": "any_3",
+          "type": "*",
+          "slot_index": 3,
+          "links": [
+            1586
+          ]
+        },
+        {
+          "label": "any_4",
+          "name": "any_4",
+          "type": "*",
+          "slot_index": 4,
+          "links": [
+            1077
+          ]
+        },
+        {
+          "label": "any_5",
+          "name": "any_5",
+          "type": "*",
+          "slot_index": 5,
+          "links": []
+        },
+        {
+          "label": "any_6",
+          "name": "any_6",
+          "type": "*",
+          "slot_index": 6,
+          "links": []
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-crystools",
+        "ver": "0820a7560bcc405ef6d0a7c5c53a83cc02ae7db2",
+        "Node name for S&R": "Pipe from any [Crystools]",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 521,
+      "type": "Pipe to/edit any [Crystools]",
+      "pos": [
+        -608.4174194335938,
+        -1590.36669921875
+      ],
+      "size": [
+        239.40000915527344,
+        146
+      ],
+      "flags": {},
+      "order": 44,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "CPipeAny",
+          "name": "CPipeAny",
+          "shape": 7,
+          "type": "CPipeAny",
+          "link": null
+        },
+        {
+          "label": "any_1",
+          "name": "any_1",
+          "shape": 7,
+          "type": "*",
+          "link": 1494
+        },
+        {
+          "label": "any_2",
+          "name": "any_2",
+          "shape": 7,
+          "type": "*",
+          "link": 1467
+        },
+        {
+          "label": "any_3",
+          "name": "any_3",
+          "shape": 7,
+          "type": "*",
+          "link": 1468
+        },
+        {
+          "label": "any_4",
+          "name": "any_4",
+          "shape": 7,
+          "type": "*",
+          "link": 1469
+        },
+        {
+          "label": "any_5",
+          "name": "any_5",
+          "shape": 7,
+          "type": "*",
+          "link": null
+        },
+        {
+          "label": "any_6",
+          "name": "any_6",
+          "shape": 7,
+          "type": "*",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "label": "CPipeAny",
+          "name": "CPipeAny",
+          "type": "CPipeAny",
+          "slot_index": 0,
+          "links": [
+            1071
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-crystools",
+        "ver": "0820a7560bcc405ef6d0a7c5c53a83cc02ae7db2",
+        "Node name for S&R": "Pipe to/edit any [Crystools]",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 522,
+      "type": "SetNode",
+      "pos": [
+        -503.1833801269531,
+        -1345.77783203125
+      ],
+      "size": [
+        210,
+        58
+      ],
+      "flags": {},
+      "order": 45,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "CPipeAny",
+          "name": "CPipeAny",
+          "type": "CPipeAny",
+          "link": 1071
+        }
+      ],
+      "outputs": [
+        {
+          "label": "*",
+          "name": "*",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "title": "Set_pipe_model",
+      "properties": {
+        "previousName": "pipe_model",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        "pipe_model"
       ]
     },
-    "class_type": "CLIPTextEncode",
-    "_meta": {
-      "title": "CLIP文本编码"
-    }
-  },
-  "20115": {
-    "inputs": {
-      "conditioning": [
-        "20114",
-        0
+    {
+      "id": 523,
+      "type": "GetNode",
+      "pos": [
+        -144.4671173095703,
+        -1032.233642578125
+      ],
+      "size": [
+        210,
+        58
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "label": "CPipeAny",
+          "name": "CPipeAny",
+          "type": "CPipeAny",
+          "slot_index": 0,
+          "links": [
+            1073
+          ]
+        }
+      ],
+      "title": "Get_pipe_model",
+      "properties": {
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        "pipe_model"
       ]
     },
-    "class_type": "ConditioningZeroOut",
-    "_meta": {
-      "title": "条件零化"
-    }
-  },
-  "20133": {
-    "inputs": {
-      "scheduler": "sgm_uniform",
-      "steps": 28,
-      "denoise": 1,
-      "model": [
-        "520",
-        1
+    {
+      "id": 557,
+      "type": "SaveImage_Tinktool",
+      "pos": [
+        2100.944091796875,
+        -1023.571044921875
+      ],
+      "size": [
+        313.8710632324219,
+        126
+      ],
+      "flags": {},
+      "order": 40,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "images",
+          "name": "images",
+          "type": "IMAGE",
+          "link": 1650
+        },
+        {
+          "label": "timestamp",
+          "name": "timestamp",
+          "type": "STRING",
+          "widget": {
+            "name": "timestamp"
+          },
+          "link": 1212
+        }
+      ],
+      "outputs": [
+        {
+          "label": "STRING",
+          "name": "STRING",
+          "type": "STRING",
+          "slot_index": 0,
+          "links": [
+            1566
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "Comfyui_Tinktool.git",
+        "ver": "5aa841724d02c5c069e806f92153369abbfd8c79",
+        "Node name for S&R": "SaveImage_Tinktool",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {
+            "timestamp": true
+          }
+        }
+      },
+      "widgets_values": [
+        "/srv/http/comfyui-package-design/image_without_background_removed",
+        "filename",
+        "png"
       ]
     },
-    "class_type": "BasicScheduler",
-    "_meta": {
-      "title": "基本调度器"
-    }
-  },
-  "20134": {
-    "inputs": {
-      "sampler_name": "uni_pc_bh2"
+    {
+      "id": 558,
+      "type": "Random_Filename",
+      "pos": [
+        1777.1943359375,
+        -903.2877197265625
+      ],
+      "size": [
+        210,
+        26
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "label": "STRING",
+          "name": "STRING",
+          "type": "STRING",
+          "slot_index": 0,
+          "links": [
+            1212
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "Comfyui_Tinktool.git",
+        "ver": "5aa841724d02c5c069e806f92153369abbfd8c79",
+        "Node name for S&R": "Random_Filename",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": []
     },
-    "class_type": "KSamplerSelect",
-    "_meta": {
-      "title": "K采样器选择"
-    }
-  },
-  "20135": {
-    "inputs": {
-      "cfg": 1,
-      "model": [
-        "520",
-        1
+    {
+      "id": 10000,
+      "type": "String Literal (Image Saver)",
+      "pos": [
+        -3765.095947265625,
+        -1659.9869384765625
       ],
-      "positive": [
-        "520",
-        2
+      "size": [
+        284.1782531738281,
+        133.2838897705078
       ],
-      "negative": [
-        "520",
-        3
-      ]
-    },
-    "class_type": "CFGGuider",
-    "_meta": {
-      "title": "CFG引导器"
-    }
-  },
-  "20137": {
-    "inputs": {
-      "noise": [
-        "10001",
-        0
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "label": "STRING",
+          "name": "STRING",
+          "type": "STRING",
+          "slot_index": 0,
+          "links": [
+            1282
+          ]
+        }
       ],
-      "guider": [
-        "20135",
-        0
-      ],
-      "sampler": [
-        "20134",
-        0
-      ],
-      "sigmas": [
-        "20133",
-        0
-      ],
-      "latent_image": [
-        "20100",
-        0
-      ]
-    },
-    "class_type": "SamplerCustomAdvanced",
-    "_meta": {
-      "title": "自定义采样器（高级）"
-    }
-  },
-  "20138": {
-    "inputs": {
-      "lora_name": "eye-shadow-box1.0.safetensors",
-      "strength_model": 0.25,
-      "strength_clip": 0.25,
-      "model": [
-        "20194",
-        0
-      ],
-      "clip": [
-        "20194",
-        1
-      ]
-    },
-    "class_type": "LoraLoader",
-    "_meta": {
-      "title": "加载LoRA"
-    }
-  },
-  "20139": {
-    "inputs": {
-      "index": [
-        "20180",
-        0
-      ],
-      "value0": [
-        "20194",
-        0
-      ],
-      "value1": [
-        "20194",
-        0
-      ],
-      "value2": [
-        "20138",
-        0
-      ],
-      "value3": [
-        "20194",
-        0
-      ],
-      "value4": [
-        "20194",
-        0
-      ],
-      "value5": [
-        "20149",
-        0
-      ]
-    },
-    "class_type": "easy anythingIndexSwitch",
-    "_meta": {
-      "title": "编号切换"
-    }
-  },
-  "20140": {
-    "inputs": {
-      "index": [
-        "20180",
-        0
-      ],
-      "value0": [
-        "20194",
-        1
-      ],
-      "value1": [
-        "20194",
-        1
-      ],
-      "value2": [
-        "20138",
-        1
-      ],
-      "value3": [
-        "20194",
-        1
-      ],
-      "value4": [
-        "20194",
-        1
-      ],
-      "value5": [
-        "20149",
-        1
-      ]
-    },
-    "class_type": "easy anythingIndexSwitch",
-    "_meta": {
-      "title": "编号切换"
-    }
-  },
-  "20149": {
-    "inputs": {
-      "lora_name": "facial-mask1.0.safetensors",
-      "strength_model": 0.1,
-      "strength_clip": 0.1,
-      "model": [
-        "20195",
-        0
-      ],
-      "clip": [
-        "20195",
-        1
-      ]
-    },
-    "class_type": "LoraLoader",
-    "_meta": {
-      "title": "加载LoRA"
-    }
-  },
-  "20151": {
-    "inputs": {
-      "lora_name": "FLUX.1-loras-rhinobird-beauty-ecommerce-v1.safetensors",
-      "strength_model": 0.5,
-      "strength_clip": 0.5,
-      "model": [
-        "20109",
-        0
-      ],
-      "clip": [
-        "20111",
-        0
-      ]
-    },
-    "class_type": "LoraLoader",
-    "_meta": {
-      "title": "加载LoRA"
-    }
-  },
-  "20157": {
-    "inputs": {
-      "string": "testID:{ID-Key}\n系统提示：化妆品包装视觉文案撰写人\n\n你是一名包装设计描述助手。给输入内容作为产品（类型及任何提示信息），撰写一段自然流畅、可直接用于广告的英文描述，使其读起来如同一张高清产品照片的说明文字。仅聚焦于产品及其包装呈现（输入的产品类型、标签、颜色 / 渐变、纹理、标志 / 字体、摆放位置、背景、光线、氛围）。不要提及模型训练、提示词、相机或参数。\n\n输入信息（可能不完整）：\n\n产品类型（必填）：根据输入的产品类型填入此项\n产品提示（可选）：材质、颜色走向、图案、特点（例如，“塑料质感”、“底部渐变”）\n主题风格（可选）：根据输入内容确定主题风格，若没有则自创一个符合该产品的设计风格。\n品牌名称（必选）：若缺失，自创一个简短的大写品牌名（例如，“SMOOTHLY”、“LUXORA”）\n产品展示名称（可选）：若缺失，自创一个与产品相符的简洁名称\n\n输出要求：\n\n语言：英文\n形式：一段连贯的文字（120-170 词）。无项目符号、无引号、无标题\n语气与风格：平静、精准、优雅、描述性（如同奢华产品文案）。避免比喻性的拟人手法\n品牌与命名规则：\n若提供品牌名称，在标签上以全大写形式呈现\n若未提供，创建一个大写品牌名（一个词）和一个简洁的产品名称\n在标签文字中同时显示两者（例如，“标签上有白色文字：BRAND 和‘产品名称’”）\n\n框架（指南，不要输出标题）：\n\n第 1 句：说明这是一张 <产品> 的高清照片\n第 2 句：标签文字，包含可见的品牌（全大写）+ 产品名称\n第 3 句：主题风格描述\n第 4 句：色彩搭配说+产品的工艺+材质+设计内容 + 氛围\n第 5 句：根据输入的内容决定背景及场景，若内容中没有背景描述，则贴合内容自创一个背景\n\n最终指令：仅输出符合上述风格的英文段落。",
-      "speak_and_recognation": {
-        "__value__": [
+      "properties": {
+        "cnr_id": "comfyui-image-saver",
+        "ver": "f8520bcfe5339ba7b4bb64ba96f6ed03da87fb89",
+        "Node name for S&R": "String Literal (Image Saver)",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        "设计一个哑光口红管，背景是在沙滩上",
+        [
           false,
           true
         ]
-      }
-    },
-    "class_type": "String Literal (Image Saver)",
-    "_meta": {
-      "title": "String Literal (Image Saver)"
-    }
-  },
-  "20158": {
-    "inputs": {
-      "system_content": [
-        "20163",
-        0
-      ],
-      "user_content": [
-        "10000",
-        0
-      ],
-      "speak_and_recognation": {
-        "__value__": [
-          false,
-          true
-        ]
-      }
-    },
-    "class_type": "ZhipuAI_Chat",
-    "_meta": {
-      "title": "Zhipu AI Chat"
-    }
-  },
-  "20163": {
-    "inputs": {
-      "find": "{ID-Key}",
-      "replace": [
-        "20164",
-        0
-      ],
-      "text": [
-        "20157",
-        0
       ]
     },
-    "class_type": "Text Find and Replace",
-    "_meta": {
-      "title": "Text Find and Replace"
-    }
-  },
-  "20164": {
-    "inputs": {},
-    "class_type": "Random_Filename",
-    "_meta": {
-      "title": "Random Filename"
-    }
-  },
-  "20177": {
-    "inputs": {
-      "delimiter": ",",
-      "clean_whitespace": "false",
-      "text_a": [
-        "10000",
-        0
+    {
+      "id": 10001,
+      "type": "RandomNoise",
+      "pos": [
+        944.936279296875,
+        -1069.2730712890625
       ],
-      "text_b": [
-        "20158",
-        0
+      "size": [
+        315,
+        82
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "label": "NOISE",
+          "name": "NOISE",
+          "type": "NOISE",
+          "links": [
+            1506
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.36",
+        "Node name for S&R": "RandomNoise",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        754406836883254,
+        "randomize"
       ]
     },
-    "class_type": "Text Concatenate",
-    "_meta": {
-      "title": "Text Concatenate"
-    }
-  },
-  "20178": {
-    "inputs": {
-      "system_content": [
-        "20179",
-        0
+    {
+      "id": 20002,
+      "type": "easy showAnything",
+      "pos": [
+        2705.951416015625,
+        -1642.750244140625
       ],
-      "user_content": [
-        "10000",
-        0
+      "size": [
+        348.68701171875,
+        138.162109375
       ],
-      "speak_and_recognation": {
-        "__value__": [
-          false,
-          true
-        ]
-      }
-    },
-    "class_type": "ZhipuAI_Chat",
-    "_meta": {
-      "title": "Zhipu AI Chat"
-    }
-  },
-  "20179": {
-    "inputs": {
-      "string": "你是一个产品类型筛选专家。你的任务是从用户输入的自然语言中，准确识别并仅输出一个最匹配的产品类型名称。\n\n产品类型定义：\n1.[窄口瓶]类型包括:\n沐浴露瓶\\洗发水瓶\\护发素瓶\\精华液瓶\\爽肤水瓶\\乳液瓶\\卸妆水瓶\\香水瓶\\精油瓶\n2.[广口瓶]类型包括:\n面霜瓶\\身体乳瓶\\发膜瓶\\面膜霜瓶\\护手霜瓶\\眼霜瓶\\按摩膏瓶\\磨砂膏瓶\n3.[盒类]类型包括:\n化妆品礼盒\\面膜盒\\香水盒\\眼影盒\\粉饼盒\\腮红盒\\散粉盒\\护肤品套装盒\\首饰盒样式包装\n4.[口红]类型包括:\n传统管状口红\\液体唇釉管\\唇膏笔\\唇线笔\\唇彩管\\润唇膏管\\哑光口红管\\珠光口红管\n5.[笔管]类型包括:\n眼线笔\\眉笔\\睫毛膏管\\遮瑕笔\\修容笔\\高光笔\\眼影棒\\BB霜笔\\粉底液笔\n6.[面膜]类型包括:\n片状面膜包装\n泥膜罐装\\睡眠面膜包装\\水洗面膜包装\\撕拉面膜包装\\眼膜包装\\鼻贴包装\\面膜纸单片包装\\补水面膜包装\n7.[软管]类型包括:\n牙膏管\\洗面奶管\\防晒霜管\\BB霜管\\CC霜管\\粉底液管\\手霜管\\足霜管\\染发剂管\\护发素管\n\n\n输出要求：\n1. 只输出一个产品类型名称\n2. 不要添加任何解释或额外文字\n3. 如果无法确定类型，输出\"未知\"\n\n示例输入和输出：\n输入：\"我想要一个装眉笔的包装\"\n输出：笔管\n\n输入：\"这个面霜需要什么包装？\"\n输出：广口瓶\n\n输入：\"帮我设计一个睫毛膏的包装\"\n输出：笔管\n\n输入：\"防晒霜包装设计\"\n输出：软管\n\n输入：\"设计一个面膜包装\"\n输出：面膜",
-      "speak_and_recognation": {
-        "__value__": [
-          false,
-          true
-        ]
-      }
-    },
-    "class_type": "String Literal (Image Saver)",
-    "_meta": {
-      "title": "String Literal (Image Saver)"
-    }
-  },
-  "20180": {
-    "inputs": {
-      "input_string": [
-        "20178",
-        0
+      "flags": {},
+      "order": 43,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "shape": 7,
+          "type": "*",
+          "link": 1566
+        }
       ],
-      "option0": "窄口瓶",
-      "option1": "广口瓶",
-      "option2": "盒类",
-      "option3": "口红",
-      "option4": "笔管",
-      "option5": "面膜",
-      "option6": "",
-      "option7": "",
-      "option8": "",
-      "option9": ""
-    },
-    "class_type": "StringMatcher",
-    "_meta": {
-      "title": "String Matcher"
-    }
-  },
-  "20185": {
-    "inputs": {
-      "text": "3",
-      "anything": [
-        "20180",
-        0
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-easy-use",
+        "ver": "11794f7d718dc38dded09e677817add796ce0234",
+        "Node name for S&R": "easy showAnything",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.0.1"
+        }
+      },
+      "widgets_values": [
+        "https://da.ai.lainuoniao.cn:4443/image_without_background_removed/1757501174535778435_0.png"
       ]
     },
-    "class_type": "easy showAnything",
-    "_meta": {
-      "title": "展示任何"
-    }
-  },
-  "20186": {
-    "inputs": {
-      "text": [
-        "20177",
-        0
+    {
+      "id": 20047,
+      "type": "SetNode",
+      "pos": [
+        -3412.820068359375,
+        -1654.511962890625
       ],
-      "speak_and_recognation": {
-        "__value__": [
-          false,
-          true
-        ]
-      }
-    },
-    "class_type": "baiduTranslate",
-    "_meta": {
-      "title": "baiduTranslate"
-    }
-  },
-  "20191": {
-    "inputs": {
-      "text": "Design a matte red tube with a background on the beach, This is a high-definition photo of a matte lipstick tube. The label features white text that reads: VELVETtouch 'Sun-Kissed Flush.' The design exudes an effortless chic theme with its soft, tactile finish. The color palette is a harmonious blend of warm, sandy tones, crafted meticulously from high-quality materials. The lipstick's sleek design and the subtle shimmer of its packaging evoke a serene and luxurious ambiance. Set against the backdrop of a sun-drenched beach, the lipstick tube appears both sophisticated and at ease, inviting you to indulge in its timeless elegance.",
-      "anything": [
-        "20186",
-        0
+      "size": [
+        210,
+        60
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "STRING",
+          "name": "STRING",
+          "type": "STRING",
+          "link": 1282
+        }
+      ],
+      "outputs": [
+        {
+          "label": "*",
+          "name": "*",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "title": "Set_10000",
+      "properties": {
+        "previousName": "10000",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        "10000"
       ]
     },
-    "class_type": "easy showAnything",
-    "_meta": {
-      "title": "展示任何"
-    }
-  },
-  "20193": {
-    "inputs": {
-      "text": "AI生成",
-      "font_path": "input/DREAMHANSANSCN-W16.TTF",
-      "position": "top_right",
-      "margin": 0.02,
-      "scale_ratio": 0.12,
-      "opacity": 0.3,
-      "image": [
-        "8",
-        0
-      ]
-    },
-    "class_type": "TextWatermarkNode",
-    "_meta": {
-      "title": "Text Watermark"
-    }
-  },
-  "20194": {
-    "inputs": {
-      "lora_name": "MINISO.safetensors",
-      "strength_model": 0.5,
-      "strength_clip": 0.5,
-      "model": [
-        "20110",
-        0
+    {
+      "id": 20100,
+      "type": "EmptyLatentImage",
+      "pos": [
+        553.3834838867188,
+        -1081.3870849609375
       ],
-      "clip": [
-        "20110",
+      "size": [
+        315,
+        106
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "label": "LATENT",
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            1515
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.36",
+        "Node name for S&R": "EmptyLatentImage",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        1080,
+        1080,
         1
       ]
     },
-    "class_type": "LoraLoader",
-    "_meta": {
-      "title": "加载LoRA"
-    }
-  },
-  "20195": {
-    "inputs": {
-      "lora_name": "MINISO.safetensors",
-      "strength_model": 0.5,
-      "strength_clip": 0.5,
-      "model": [
-        "20151",
-        0
+    {
+      "id": 20101,
+      "type": "PreviewImage",
+      "pos": [
+        2685.8759765625,
+        -1406.7921142578125
       ],
-      "clip": [
-        "20151",
+      "size": [
+        479.79034423828125,
+        499.3979797363281
+      ],
+      "flags": {},
+      "order": 41,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "images",
+          "name": "images",
+          "type": "IMAGE",
+          "link": 1651
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.36",
+        "Node name for S&R": "PreviewImage",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 20109,
+      "type": "UNETLoader",
+      "pos": [
+        -3033.80517578125,
+        -1664.9405517578125
+      ],
+      "size": [
+        254.15040588378906,
+        82
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "label": "MODEL",
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            1455,
+            1564
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.40",
+        "Node name for S&R": "UNETLoader",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        "FLUX.1-unet-rhinobird-beauty-ecommerce-v1.safetensors",
+        "fp8_e4m3fn"
+      ]
+    },
+    {
+      "id": 20110,
+      "type": "LoraLoader",
+      "pos": [
+        -2734.002197265625,
+        -1666.0865478515625
+      ],
+      "size": [
+        299.38995361328125,
+        126
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "model",
+          "name": "model",
+          "type": "MODEL",
+          "link": 1455
+        },
+        {
+          "label": "clip",
+          "name": "clip",
+          "type": "CLIP",
+          "link": 1456
+        }
+      ],
+      "outputs": [
+        {
+          "label": "MODEL",
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            1652
+          ]
+        },
+        {
+          "label": "CLIP",
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            1653
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.40",
+        "Node name for S&R": "LoraLoader",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        "FLUX.1-loras-rhinobird-beauty-ecommerce-v1.safetensors",
+        0.6,
+        0.6
+      ]
+    },
+    {
+      "id": 20111,
+      "type": "DualCLIPLoader",
+      "pos": [
+        -3044.15966796875,
+        -1522.3665771484375
+      ],
+      "size": [
+        270,
+        130
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "label": "CLIP",
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            1456,
+            1563
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.40",
+        "Node name for S&R": "DualCLIPLoader",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        "clip_l.safetensors",
+        "t5xxl_fp16.safetensors",
+        "flux",
+        "default"
+      ]
+    },
+    {
+      "id": 20112,
+      "type": "ApplyFBCacheOnModel",
+      "pos": [
+        -1062.8157958984375,
+        -1644.62744140625
+      ],
+      "size": [
+        320.755859375,
+        154
+      ],
+      "flags": {},
+      "order": 37,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "model",
+          "name": "model",
+          "type": "MODEL",
+          "link": 1532
+        }
+      ],
+      "outputs": [
+        {
+          "label": "MODEL",
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            1494
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "wavespeed",
+        "ver": "16ec6f344f8cecbbf006d374043f85af22b7a51d",
+        "Node name for S&R": "ApplyFBCacheOnModel",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        "diffusion_model",
+        0.12000000000000002,
+        0,
+        1,
+        -1
+      ]
+    },
+    {
+      "id": 20113,
+      "type": "VAELoader",
+      "pos": [
+        -1030.0157470703125,
+        -1333.7723388671875
+      ],
+      "size": [
+        270,
+        58
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "label": "VAE",
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            1469
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.40",
+        "Node name for S&R": "VAELoader",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        "ae.safetensors"
+      ]
+    },
+    {
+      "id": 20114,
+      "type": "CLIPTextEncode",
+      "pos": [
+        -1288.946533203125,
+        -1453.280517578125
+      ],
+      "size": [
+        210,
+        93
+      ],
+      "flags": {},
+      "order": 38,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "clip",
+          "name": "clip",
+          "type": "CLIP",
+          "link": 1533
+        },
+        {
+          "label": "text",
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": 1629
+        }
+      ],
+      "outputs": [
+        {
+          "label": "CONDITIONING",
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            1463,
+            1467
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.28",
+        "Node name for S&R": "CLIPTextEncode",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {
+            "text": true
+          }
+        }
+      },
+      "widgets_values": [
+        "",
+        [
+          false,
+          true
+        ]
+      ]
+    },
+    {
+      "id": 20115,
+      "type": "ConditioningZeroOut",
+      "pos": [
+        -1023.0936279296875,
+        -1432.3387451171875
+      ],
+      "size": [
+        205.23629760742188,
+        26
+      ],
+      "flags": {},
+      "order": 42,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "conditioning",
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 1463
+        }
+      ],
+      "outputs": [
+        {
+          "label": "CONDITIONING",
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            1468
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.28",
+        "Node name for S&R": "ConditioningZeroOut",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 20133,
+      "type": "BasicScheduler",
+      "pos": [
+        981.5364379882812,
+        -754.6729736328125
+      ],
+      "size": [
+        256.2908935546875,
+        106
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "model",
+          "name": "model",
+          "type": "MODEL",
+          "link": 1511
+        }
+      ],
+      "outputs": [
+        {
+          "label": "SIGMAS",
+          "name": "SIGMAS",
+          "type": "SIGMAS",
+          "slot_index": 0,
+          "links": [
+            1509
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.36",
+        "Node name for S&R": "BasicScheduler",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        "sgm_uniform",
+        28,
         1
       ]
     },
-    "class_type": "LoraLoader",
-    "_meta": {
-      "title": "加载LoRA"
+    {
+      "id": 20134,
+      "type": "KSamplerSelect",
+      "pos": [
+        984.0462036132812,
+        -589.273193359375
+      ],
+      "size": [
+        252.34657287597656,
+        58
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "label": "SAMPLER",
+          "name": "SAMPLER",
+          "type": "SAMPLER",
+          "slot_index": 0,
+          "links": [
+            1508
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.36",
+        "Node name for S&R": "KSamplerSelect",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        "uni_pc_bh2"
+      ]
+    },
+    {
+      "id": 20135,
+      "type": "CFGGuider",
+      "pos": [
+        984.9363403320312,
+        -919.2731323242188
+      ],
+      "size": [
+        244.40863037109375,
+        98.19055938720703
+      ],
+      "flags": {},
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "model",
+          "name": "model",
+          "type": "MODEL",
+          "link": 1510
+        },
+        {
+          "label": "positive",
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 1585
+        },
+        {
+          "label": "negative",
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 1586
+        }
+      ],
+      "outputs": [
+        {
+          "label": "GUIDER",
+          "name": "GUIDER",
+          "type": "GUIDER",
+          "links": [
+            1507
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.36",
+        "Node name for S&R": "CFGGuider",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        1
+      ]
+    },
+    {
+      "id": 20137,
+      "type": "SamplerCustomAdvanced",
+      "pos": [
+        1362.7421875,
+        -1051.8055419921875
+      ],
+      "size": [
+        355.20001220703125,
+        326
+      ],
+      "flags": {},
+      "order": 27,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "noise",
+          "name": "noise",
+          "type": "NOISE",
+          "link": 1506
+        },
+        {
+          "label": "guider",
+          "name": "guider",
+          "type": "GUIDER",
+          "link": 1507
+        },
+        {
+          "label": "sampler",
+          "name": "sampler",
+          "type": "SAMPLER",
+          "link": 1508
+        },
+        {
+          "label": "sigmas",
+          "name": "sigmas",
+          "type": "SIGMAS",
+          "link": 1509
+        },
+        {
+          "label": "latent_image",
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 1515
+        }
+      ],
+      "outputs": [
+        {
+          "label": "output",
+          "name": "output",
+          "type": "LATENT",
+          "slot_index": 0,
+          "links": [
+            1514
+          ]
+        },
+        {
+          "label": "denoised_output",
+          "name": "denoised_output",
+          "type": "LATENT",
+          "slot_index": 1,
+          "links": []
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.36",
+        "Node name for S&R": "SamplerCustomAdvanced",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 20138,
+      "type": "LoraLoader",
+      "pos": [
+        -2313.251953125,
+        -1465.1553955078125
+      ],
+      "size": [
+        299.38995361328125,
+        126
+      ],
+      "flags": {},
+      "order": 28,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "model",
+          "name": "model",
+          "type": "MODEL",
+          "link": 1662
+        },
+        {
+          "label": "clip",
+          "name": "clip",
+          "type": "CLIP",
+          "link": 1663
+        }
+      ],
+      "outputs": [
+        {
+          "label": "MODEL",
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            1522
+          ]
+        },
+        {
+          "label": "CLIP",
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            1523
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.40",
+        "Node name for S&R": "LoraLoader",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        "eye-shadow-box1.0.safetensors",
+        0.25,
+        0.25
+      ]
+    },
+    {
+      "id": 20139,
+      "type": "easy anythingIndexSwitch",
+      "pos": [
+        -1687.7864990234375,
+        -1645.2158203125
+      ],
+      "size": [
+        270,
+        178
+      ],
+      "flags": {},
+      "order": 33,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "value0",
+          "name": "value0",
+          "shape": 7,
+          "type": "*",
+          "link": 1654
+        },
+        {
+          "label": "value1",
+          "name": "value1",
+          "shape": 7,
+          "type": "*",
+          "link": 1655
+        },
+        {
+          "label": "index",
+          "name": "index",
+          "type": "INT",
+          "widget": {
+            "name": "index"
+          },
+          "link": 1618
+        },
+        {
+          "label": "value2",
+          "name": "value2",
+          "type": "*",
+          "link": 1522
+        },
+        {
+          "label": "value3",
+          "name": "value3",
+          "type": "*",
+          "link": 1656
+        },
+        {
+          "label": "value4",
+          "name": "value4",
+          "type": "*",
+          "link": 1657
+        },
+        {
+          "label": "value5",
+          "name": "value5",
+          "type": "*",
+          "link": 1571
+        },
+        {
+          "name": "value6",
+          "type": "*",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "label": "value",
+          "name": "value",
+          "type": "*",
+          "links": [
+            1532
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-easy-use",
+        "ver": "7ef0612ce7552968146ed41f5863a1638bf33412",
+        "Node name for S&R": "easy anythingIndexSwitch",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        0
+      ]
+    },
+    {
+      "id": 20140,
+      "type": "easy anythingIndexSwitch",
+      "pos": [
+        -1671.23583984375,
+        -1386.145263671875
+      ],
+      "size": [
+        270,
+        178
+      ],
+      "flags": {},
+      "order": 34,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "value0",
+          "name": "value0",
+          "shape": 7,
+          "type": "*",
+          "link": 1658
+        },
+        {
+          "label": "value1",
+          "name": "value1",
+          "shape": 7,
+          "type": "*",
+          "link": 1659
+        },
+        {
+          "label": "index",
+          "name": "index",
+          "type": "INT",
+          "widget": {
+            "name": "index"
+          },
+          "link": 1619
+        },
+        {
+          "label": "value2",
+          "name": "value2",
+          "type": "*",
+          "link": 1523
+        },
+        {
+          "label": "value3",
+          "name": "value3",
+          "type": "*",
+          "link": 1660
+        },
+        {
+          "label": "value4",
+          "name": "value4",
+          "type": "*",
+          "link": 1661
+        },
+        {
+          "label": "value5",
+          "name": "value5",
+          "type": "*",
+          "link": 1572
+        },
+        {
+          "name": "value6",
+          "type": "*",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "label": "value",
+          "name": "value",
+          "type": "*",
+          "links": [
+            1533
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-easy-use",
+        "ver": "7ef0612ce7552968146ed41f5863a1638bf33412",
+        "Node name for S&R": "easy anythingIndexSwitch",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        0
+      ]
+    },
+    {
+      "id": 20141,
+      "type": "GetNode",
+      "pos": [
+        -1958.6884765625,
+        -1419.48779296875
+      ],
+      "size": [
+        210,
+        58
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "label": "STRING",
+          "name": "INT",
+          "type": "INT",
+          "slot_index": 0,
+          "links": [
+            1618,
+            1619,
+            1625
+          ]
+        }
+      ],
+      "title": "Get_10005",
+      "properties": {
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        "10005"
+      ],
+      "color": "#1b4669",
+      "bgcolor": "#29699c"
+    },
+    {
+      "id": 20149,
+      "type": "LoraLoader",
+      "pos": [
+        -2131.799560546875,
+        -1178.2569580078125
+      ],
+      "size": [
+        299.38995361328125,
+        126
+      ],
+      "flags": {},
+      "order": 29,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "model",
+          "name": "model",
+          "type": "MODEL",
+          "link": 1666
+        },
+        {
+          "label": "clip",
+          "name": "clip",
+          "type": "CLIP",
+          "link": 1667
+        }
+      ],
+      "outputs": [
+        {
+          "label": "MODEL",
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            1571
+          ]
+        },
+        {
+          "label": "CLIP",
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            1572
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.40",
+        "Node name for S&R": "LoraLoader",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        "facial-mask1.0.safetensors",
+        0.1,
+        0.1
+      ]
+    },
+    {
+      "id": 20151,
+      "type": "LoraLoader",
+      "pos": [
+        -2783.440673828125,
+        -1167.9207763671875
+      ],
+      "size": [
+        299.38995361328125,
+        126
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "model",
+          "name": "model",
+          "type": "MODEL",
+          "link": 1564
+        },
+        {
+          "label": "clip",
+          "name": "clip",
+          "type": "CLIP",
+          "link": 1563
+        }
+      ],
+      "outputs": [
+        {
+          "label": "MODEL",
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            1664
+          ]
+        },
+        {
+          "label": "CLIP",
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            1665
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.40",
+        "Node name for S&R": "LoraLoader",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        "FLUX.1-loras-rhinobird-beauty-ecommerce-v1.safetensors",
+        0.6,
+        0.6
+      ]
+    },
+    {
+      "id": 20157,
+      "type": "String Literal (Image Saver)",
+      "pos": [
+        -2954.029541015625,
+        -744.5647583007812
+      ],
+      "size": [
+        416.9039611816406,
+        243.25424194335938
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            1581
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-image-saver",
+        "ver": "f8520bcfe5339ba7b4bb64ba96f6ed03da87fb89",
+        "Node name for S&R": "String Literal (Image Saver)",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.0.1"
+        }
+      },
+      "widgets_values": [
+        "testID:{ID-Key}\n系统提示：化妆品包装视觉文案撰写人\n\n你是一名包装设计描述助手。给输入内容作为产品（类型及任何提示信息），撰写一段自然流畅、可直接用于广告的英文描述，使其读起来如同一张高清产品照片的说明文字。仅聚焦于产品及其包装呈现（输入的产品类型、标签、颜色 / 渐变、纹理、标志 / 字体、摆放位置、背景、光线、氛围）。不要提及模型训练、提示词、相机或参数。\n\n输入信息（可能不完整）：\n\n产品类型（必填）：根据输入的产品类型填入此项\n产品提示（可选）：材质、颜色走向、图案、特点（例如，“塑料质感”、“底部渐变”）\n主题风格（可选）：根据输入内容确定主题风格，若没有则自创一个符合该产品的设计风格。\n品牌名称（必选）：若缺失，自创一个简短的大写品牌名（例如，“SMOOTHLY”、“LUXORA”）\n产品展示名称（可选）：若缺失，自创一个与产品相符的简洁名称\n\n输出要求：\n\n语言：英文\n形式：一段连贯的文字（120-170 词）。无项目符号、无引号、无标题\n语气与风格：平静、精准、优雅、描述性（如同奢华产品文案）。避免比喻性的拟人手法\n品牌与命名规则：\n若提供品牌名称，在标签上以全大写形式呈现\n若未提供，创建一个大写品牌名（一个词）和一个简洁的产品名称\n在标签文字中同时显示两者（例如，“标签上有白色文字：BRAND 和‘产品名称’”）\n\n框架（指南，不要输出标题）：\n\n第 1 句：说明这是一张 <产品> 的高清照片\n第 2 句：标签文字，包含可见的品牌（全大写）+ 产品名称\n第 3 句：主题风格描述\n第 4 句：色彩搭配说+产品的工艺+材质+设计内容 + 氛围\n第 5 句：根据输入的内容决定背景及场景，若内容中没有背景描述，则贴合内容自创一个背景\n\n最终指令：仅输出符合上述风格的英文段落。",
+        [
+          false,
+          true
+        ]
+      ]
+    },
+    {
+      "id": 20158,
+      "type": "ZhipuAI_Chat",
+      "pos": [
+        -2016.155029296875,
+        -724.3463745117188
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 25,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "system_content",
+          "type": "STRING",
+          "widget": {
+            "name": "system_content"
+          },
+          "link": 1583
+        },
+        {
+          "name": "user_content",
+          "type": "STRING",
+          "widget": {
+            "name": "user_content"
+          },
+          "link": 1647
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            1610
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "Comfyui_Tinktool.git",
+        "ver": "3364c5a0bcbeb6177e93ed71db57cb86197e3d27",
+        "Node name for S&R": "ZhipuAI_Chat",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "system_content": true,
+            "user_content": true
+          },
+          "version": "7.0.1"
+        }
+      },
+      "widgets_values": [
+        "你是一个AI助手",
+        "你好",
+        [
+          false,
+          true
+        ],
+        [
+          false,
+          true
+        ]
+      ]
+    },
+    {
+      "id": 20159,
+      "type": "GetNode",
+      "pos": [
+        -2789.332275390625,
+        -304.87066650390625
+      ],
+      "size": [
+        210,
+        58
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            1614,
+            1647,
+            1648
+          ]
+        }
+      ],
+      "title": "Get_10000",
+      "properties": {
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.0.1"
+        }
+      },
+      "widgets_values": [
+        "10000"
+      ]
+    },
+    {
+      "id": 20163,
+      "type": "Text Find and Replace",
+      "pos": [
+        -2462.20263671875,
+        -705.971923828125
+      ],
+      "size": [
+        286.3533935546875,
+        190.6651611328125
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 1581
+        },
+        {
+          "name": "replace",
+          "type": "STRING",
+          "widget": {
+            "name": "replace"
+          },
+          "link": 1582
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result_text",
+          "type": "STRING",
+          "links": [
+            1583
+          ]
+        },
+        {
+          "name": "replacement_count_number",
+          "type": "NUMBER",
+          "links": null
+        },
+        {
+          "name": "replacement_count_float",
+          "type": "FLOAT",
+          "links": null
+        },
+        {
+          "name": "replacement_count_int",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "was-node-suite-comfyui",
+        "ver": "ea935d1044ae5a26efa54ebeb18fe9020af49a45",
+        "Node name for S&R": "Text Find and Replace",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "replace": true
+          },
+          "version": "7.0.1"
+        }
+      },
+      "widgets_values": [
+        "{ID-Key}",
+        ""
+      ]
+    },
+    {
+      "id": 20164,
+      "type": "Random_Filename",
+      "pos": [
+        -2737.16162109375,
+        -432.015625
+      ],
+      "size": [
+        154.28573608398438,
+        26
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            1582
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "Comfyui_Tinktool.git",
+        "ver": "3364c5a0bcbeb6177e93ed71db57cb86197e3d27",
+        "Node name for S&R": "Random_Filename",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.0.1"
+        }
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 20177,
+      "type": "Text Concatenate",
+      "pos": [
+        -1553.890869140625,
+        -720.2514038085938
+      ],
+      "size": [
+        315,
+        238
+      ],
+      "flags": {},
+      "order": 30,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "text_a",
+          "name": "text_a",
+          "shape": 7,
+          "type": "STRING",
+          "link": 1648
+        },
+        {
+          "label": "text_b",
+          "name": "text_b",
+          "shape": 7,
+          "type": "STRING",
+          "link": 1610
+        },
+        {
+          "label": "text_c",
+          "name": "text_c",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "label": "text_d",
+          "name": "text_d",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "label": "STRING",
+          "name": "STRING",
+          "type": "STRING",
+          "slot_index": 0,
+          "links": [
+            1628
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "was-node-suite-comfyui",
+        "ver": "1cd8d304eda256c412b8589ce1f00be3c61cf9ec",
+        "Node name for S&R": "Text Concatenate",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        ",",
+        "false"
+      ]
+    },
+    {
+      "id": 20178,
+      "type": "ZhipuAI_Chat",
+      "pos": [
+        -2482.51953125,
+        -156.53387451171875
+      ],
+      "size": [
+        413.7540588378906,
+        335.8212585449219
+      ],
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "system_content",
+          "type": "STRING",
+          "widget": {
+            "name": "system_content"
+          },
+          "link": 1615
+        },
+        {
+          "name": "user_content",
+          "type": "STRING",
+          "widget": {
+            "name": "user_content"
+          },
+          "link": 1614
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            1616
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "Comfyui_Tinktool.git",
+        "ver": "3364c5a0bcbeb6177e93ed71db57cb86197e3d27",
+        "Node name for S&R": "ZhipuAI_Chat",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "system_content": true,
+            "user_content": true
+          },
+          "version": "7.0.1"
+        }
+      },
+      "widgets_values": [
+        "你是一个产品类型筛选专家。你的任务是从用户输入的自然语言中，准确识别并仅输出一个最匹配的产品类型名称。\n\n产品类型定义：\n1. 窄口瓶：沐浴露瓶、洗发水瓶、护发素瓶、精华液瓶、爽肤水瓶、乳液瓶、卸妆水瓶、香水瓶、精油瓶\n2. 广口瓶：面霜瓶、身体乳瓶、发膜瓶、面膜霜瓶、护手霜瓶、眼霜瓶、按摩膏瓶、磨砂膏瓶\n3. 盒类：化妆品礼盒、面膜盒、香水盒、眼影盒、粉饼盒、腮红盒、散粉盒、护肤品套装盒、首饰盒样式包装\n4. 口红：传统管状口红、液体唇釉管、唇膏笔、唇线笔、唇彩管、润唇膏管、哑光口红管、珠光口红管\n5. 笔管：眼线笔、眉笔、睫毛膏管、遮瑕笔、修容笔、高光笔、眼影棒、BB霜笔、粉底液笔\n6. 面膜：片状面膜包装、泥膜罐装、睡眠面膜包装、水洗面膜包装、撕拉面膜包装、眼膜包装、鼻贴包装、面膜纸单片包装、补水面膜包装\n7. 软管：牙膏管、洗面奶管、防晒霜管、BB霜管、CC霜管、粉底液管、手霜管、足霜管、染发剂管、护发素管\n\n输出要求：\n1. 只输出一个产品类型名称\n2. 不要添加任何解释或额外文字\n3. 如果无法确定类型，输出\"未知\"\n\n示例输入和输出：\n输入：\"我想要一个装眉笔的包装\"\n输出：笔管\n\n输入：\"这个面霜需要什么包装？\"\n输出：广口瓶\n\n输入：\"帮我设计一个睫毛膏的包装\"\n输出：笔管\n\n输入：\"防晒霜包装设计\"\n输出：软管\n\n输入：\"面膜纸怎么包装？\"\n输出：面膜",
+        "你好",
+        [
+          false,
+          true
+        ],
+        [
+          false,
+          true
+        ]
+      ]
+    },
+    {
+      "id": 20179,
+      "type": "String Literal (Image Saver)",
+      "pos": [
+        -2941.6953125,
+        -151.6320343017578
+      ],
+      "size": [
+        399.4269104003906,
+        288.2551574707031
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            1615
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-image-saver",
+        "ver": "f8520bcfe5339ba7b4bb64ba96f6ed03da87fb89",
+        "Node name for S&R": "String Literal (Image Saver)",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.0.1"
+        }
+      },
+      "widgets_values": [
+        "你是一个产品类型筛选专家。你的任务是从用户输入的自然语言中，准确识别并仅输出一个最匹配的产品类型名称。\n\n产品类型定义：\n1.[窄口瓶]类型包括:\n沐浴露瓶\\洗发水瓶\\护发素瓶\\精华液瓶\\爽肤水瓶\\乳液瓶\\卸妆水瓶\\香水瓶\\精油瓶\n2.[广口瓶]类型包括:\n面霜瓶\\身体乳瓶\\发膜瓶\\面膜霜瓶\\护手霜瓶\\眼霜瓶\\按摩膏瓶\\磨砂膏瓶\n3.[盒类]类型包括:\n化妆品礼盒\\面膜盒\\香水盒\\眼影盒\\粉饼盒\\腮红盒\\散粉盒\\护肤品套装盒\\首饰盒样式包装\n4.[口红]类型包括:\n传统管状口红\\液体唇釉管\\唇膏笔\\唇线笔\\唇彩管\\润唇膏管\\哑光口红管\\珠光口红管\n5.[笔管]类型包括:\n眼线笔\\眉笔\\睫毛膏管\\遮瑕笔\\修容笔\\高光笔\\眼影棒\\BB霜笔\\粉底液笔\n6.[面膜]类型包括:\n片状面膜包装\n泥膜罐装\\睡眠面膜包装\\水洗面膜包装\\撕拉面膜包装\\眼膜包装\\鼻贴包装\\面膜纸单片包装\\补水面膜包装\n7.[软管]类型包括:\n牙膏管\\洗面奶管\\防晒霜管\\BB霜管\\CC霜管\\粉底液管\\手霜管\\足霜管\\染发剂管\\护发素管\n\n\n输出要求：\n1. 只输出一个产品类型名称\n2. 不要添加任何解释或额外文字\n3. 如果无法确定类型，输出\"未知\"\n\n示例输入和输出：\n输入：\"我想要一个装眉笔的包装\"\n输出：笔管\n\n输入：\"这个面霜需要什么包装？\"\n输出：广口瓶\n\n输入：\"帮我设计一个睫毛膏的包装\"\n输出：笔管\n\n输入：\"防晒霜包装设计\"\n输出：软管\n\n输入：\"设计一个面膜包装\"\n输出：面膜",
+        [
+          false,
+          true
+        ]
+      ]
+    },
+    {
+      "id": 20180,
+      "type": "StringMatcher",
+      "pos": [
+        -2026.7255859375,
+        -144.71896362304688
+      ],
+      "size": [
+        214.39610290527344,
+        298
+      ],
+      "flags": {},
+      "order": 26,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "input_string",
+          "type": "STRING",
+          "widget": {
+            "name": "input_string"
+          },
+          "link": 1616
+        }
+      ],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            1617
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "Comfyui_Tinktool.git",
+        "ver": "e1114f1211597bf908e4955ecdd3bfdce2b0393d",
+        "Node name for S&R": "StringMatcher",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        "",
+        "窄口瓶",
+        "广口瓶",
+        "盒类",
+        "口红",
+        "笔管",
+        "面膜",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": 20181,
+      "type": "SetNode",
+      "pos": [
+        -1727.75244140625,
+        -148.72508239746094
+      ],
+      "size": [
+        210,
+        60
+      ],
+      "flags": {},
+      "order": 31,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "link": 1617
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "title": "Set_10005",
+      "properties": {
+        "previousName": "10005",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.0.1"
+        }
+      },
+      "widgets_values": [
+        "10005"
+      ],
+      "color": "#1b4669",
+      "bgcolor": "#29699c"
+    },
+    {
+      "id": 20185,
+      "type": "easy showAnything",
+      "pos": [
+        -1659.587890625,
+        -1083.8560791015625
+      ],
+      "size": [
+        210,
+        88
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "shape": 7,
+          "type": "*",
+          "link": 1625
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-easy-use",
+        "ver": "11794f7d718dc38dded09e677817add796ce0234",
+        "Node name for S&R": "easy showAnything",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.0.1"
+        }
+      },
+      "widgets_values": [
+        "3"
+      ]
+    },
+    {
+      "id": 20186,
+      "type": "baiduTranslate",
+      "pos": [
+        -1159.7442626953125,
+        -715.8192749023438
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 35,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": 1628
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            1629,
+            1646
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "Comfyui_Tinktool.git",
+        "ver": "3364c5a0bcbeb6177e93ed71db57cb86197e3d27",
+        "Node name for S&R": "baiduTranslate",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "text": true
+          },
+          "version": "7.0.1"
+        }
+      },
+      "widgets_values": [
+        "",
+        [
+          false,
+          true
+        ]
+      ]
+    },
+    {
+      "id": 20191,
+      "type": "easy showAnything",
+      "pos": [
+        -727.12646484375,
+        -711.66455078125
+      ],
+      "size": [
+        210,
+        88
+      ],
+      "flags": {},
+      "order": 39,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "shape": 7,
+          "type": "*",
+          "link": 1646
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-easy-use",
+        "ver": "11794f7d718dc38dded09e677817add796ce0234",
+        "Node name for S&R": "easy showAnything",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.0.1"
+        }
+      },
+      "widgets_values": [
+        "Design a matte red tube with a background on the beach, This is a high-definition photo of a matte lipstick tube. The label features white text that reads: VELVETtouch 'Sun-Kissed Flush.' The design exudes an effortless chic theme with its soft, tactile finish. The color palette is a harmonious blend of warm, sandy tones, crafted meticulously from high-quality materials. The lipstick's sleek design and the subtle shimmer of its packaging evoke a serene and luxurious ambiance. Set against the backdrop of a sun-drenched beach, the lipstick tube appears both sophisticated and at ease, inviting you to indulge in its timeless elegance."
+      ]
+    },
+    {
+      "id": 20193,
+      "type": "TextWatermarkNode",
+      "pos": [
+        1802.315185546875,
+        -816.5449829101562
+      ],
+      "size": [
+        270,
+        178
+      ],
+      "flags": {},
+      "order": 36,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 1649
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            1650,
+            1651
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "Comfyui_Tinktool.git",
+        "ver": "3364c5a0bcbeb6177e93ed71db57cb86197e3d27",
+        "Node name for S&R": "TextWatermarkNode",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.0.1"
+        }
+      },
+      "widgets_values": [
+        "AI生成",
+        "input/DREAMHANSANSCN-W16.TTF",
+        "top_right",
+        0.02,
+        0.12,
+        0.3
+      ]
+    },
+    {
+      "id": 20194,
+      "type": "LoraLoader",
+      "pos": [
+        -2390.54248046875,
+        -1668.65234375
+      ],
+      "size": [
+        270,
+        126
+      ],
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 1652
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 1653
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            1654,
+            1655,
+            1656,
+            1657,
+            1662
+          ]
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            1658,
+            1659,
+            1660,
+            1661,
+            1663
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.51",
+        "Node name for S&R": "LoraLoader",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.0.1"
+        }
+      },
+      "widgets_values": [
+        "MINISO.safetensors",
+        0.25,
+        0.25
+      ]
+    },
+    {
+      "id": 20195,
+      "type": "LoraLoader",
+      "pos": [
+        -2444.058837890625,
+        -1163.873046875
+      ],
+      "size": [
+        270,
+        126
+      ],
+      "flags": {},
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 1664
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 1665
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            1666
+          ]
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            1667
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.51",
+        "Node name for S&R": "LoraLoader",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.0.1"
+        }
+      },
+      "widgets_values": [
+        "MINISO.safetensors",
+        0.25,
+        0.25
+      ]
     }
-  }
+  ],
+  "links": [
+    [
+      1071,
+      521,
+      0,
+      522,
+      0,
+      "*"
+    ],
+    [
+      1073,
+      523,
+      0,
+      520,
+      0,
+      "CPipeAny"
+    ],
+    [
+      1077,
+      520,
+      4,
+      8,
+      1,
+      "VAE"
+    ],
+    [
+      1212,
+      558,
+      0,
+      557,
+      1,
+      "STRING"
+    ],
+    [
+      1282,
+      10000,
+      0,
+      20047,
+      0,
+      "*"
+    ],
+    [
+      1455,
+      20109,
+      0,
+      20110,
+      0,
+      "MODEL"
+    ],
+    [
+      1456,
+      20111,
+      0,
+      20110,
+      1,
+      "CLIP"
+    ],
+    [
+      1463,
+      20114,
+      0,
+      20115,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      1467,
+      20114,
+      0,
+      521,
+      2,
+      "*"
+    ],
+    [
+      1468,
+      20115,
+      0,
+      521,
+      3,
+      "*"
+    ],
+    [
+      1469,
+      20113,
+      0,
+      521,
+      4,
+      "*"
+    ],
+    [
+      1494,
+      20112,
+      0,
+      521,
+      1,
+      "*"
+    ],
+    [
+      1506,
+      10001,
+      0,
+      20137,
+      0,
+      "NOISE"
+    ],
+    [
+      1507,
+      20135,
+      0,
+      20137,
+      1,
+      "GUIDER"
+    ],
+    [
+      1508,
+      20134,
+      0,
+      20137,
+      2,
+      "SAMPLER"
+    ],
+    [
+      1509,
+      20133,
+      0,
+      20137,
+      3,
+      "SIGMAS"
+    ],
+    [
+      1510,
+      520,
+      1,
+      20135,
+      0,
+      "MODEL"
+    ],
+    [
+      1511,
+      520,
+      1,
+      20133,
+      0,
+      "MODEL"
+    ],
+    [
+      1514,
+      20137,
+      0,
+      8,
+      0,
+      "LATENT"
+    ],
+    [
+      1515,
+      20100,
+      0,
+      20137,
+      4,
+      "LATENT"
+    ],
+    [
+      1522,
+      20138,
+      0,
+      20139,
+      3,
+      "*"
+    ],
+    [
+      1523,
+      20138,
+      1,
+      20140,
+      3,
+      "*"
+    ],
+    [
+      1532,
+      20139,
+      0,
+      20112,
+      0,
+      "MODEL"
+    ],
+    [
+      1533,
+      20140,
+      0,
+      20114,
+      0,
+      "CLIP"
+    ],
+    [
+      1563,
+      20111,
+      0,
+      20151,
+      1,
+      "CLIP"
+    ],
+    [
+      1564,
+      20109,
+      0,
+      20151,
+      0,
+      "MODEL"
+    ],
+    [
+      1566,
+      557,
+      0,
+      20002,
+      0,
+      "*"
+    ],
+    [
+      1571,
+      20149,
+      0,
+      20139,
+      6,
+      "*"
+    ],
+    [
+      1572,
+      20149,
+      1,
+      20140,
+      6,
+      "*"
+    ],
+    [
+      1581,
+      20157,
+      0,
+      20163,
+      0,
+      "STRING"
+    ],
+    [
+      1582,
+      20164,
+      0,
+      20163,
+      1,
+      "STRING"
+    ],
+    [
+      1583,
+      20163,
+      0,
+      20158,
+      0,
+      "STRING"
+    ],
+    [
+      1585,
+      520,
+      2,
+      20135,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      1586,
+      520,
+      3,
+      20135,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      1610,
+      20158,
+      0,
+      20177,
+      1,
+      "STRING"
+    ],
+    [
+      1614,
+      20159,
+      0,
+      20178,
+      1,
+      "STRING"
+    ],
+    [
+      1615,
+      20179,
+      0,
+      20178,
+      0,
+      "STRING"
+    ],
+    [
+      1616,
+      20178,
+      0,
+      20180,
+      0,
+      "STRING"
+    ],
+    [
+      1617,
+      20180,
+      0,
+      20181,
+      0,
+      "*"
+    ],
+    [
+      1618,
+      20141,
+      0,
+      20139,
+      2,
+      "INT"
+    ],
+    [
+      1619,
+      20141,
+      0,
+      20140,
+      2,
+      "INT"
+    ],
+    [
+      1625,
+      20141,
+      0,
+      20185,
+      0,
+      "*"
+    ],
+    [
+      1628,
+      20177,
+      0,
+      20186,
+      0,
+      "STRING"
+    ],
+    [
+      1629,
+      20186,
+      0,
+      20114,
+      1,
+      "STRING"
+    ],
+    [
+      1646,
+      20186,
+      0,
+      20191,
+      0,
+      "*"
+    ],
+    [
+      1647,
+      20159,
+      0,
+      20158,
+      1,
+      "STRING"
+    ],
+    [
+      1648,
+      20159,
+      0,
+      20177,
+      0,
+      "STRING"
+    ],
+    [
+      1649,
+      8,
+      0,
+      20193,
+      0,
+      "IMAGE"
+    ],
+    [
+      1650,
+      20193,
+      0,
+      557,
+      0,
+      "IMAGE"
+    ],
+    [
+      1651,
+      20193,
+      0,
+      20101,
+      0,
+      "IMAGE"
+    ],
+    [
+      1652,
+      20110,
+      0,
+      20194,
+      0,
+      "MODEL"
+    ],
+    [
+      1653,
+      20110,
+      1,
+      20194,
+      1,
+      "CLIP"
+    ],
+    [
+      1654,
+      20194,
+      0,
+      20139,
+      0,
+      "*"
+    ],
+    [
+      1655,
+      20194,
+      0,
+      20139,
+      1,
+      "*"
+    ],
+    [
+      1656,
+      20194,
+      0,
+      20139,
+      4,
+      "*"
+    ],
+    [
+      1657,
+      20194,
+      0,
+      20139,
+      5,
+      "*"
+    ],
+    [
+      1658,
+      20194,
+      1,
+      20140,
+      0,
+      "*"
+    ],
+    [
+      1659,
+      20194,
+      1,
+      20140,
+      1,
+      "*"
+    ],
+    [
+      1660,
+      20194,
+      1,
+      20140,
+      4,
+      "*"
+    ],
+    [
+      1661,
+      20194,
+      1,
+      20140,
+      5,
+      "*"
+    ],
+    [
+      1662,
+      20194,
+      0,
+      20138,
+      0,
+      "MODEL"
+    ],
+    [
+      1663,
+      20194,
+      1,
+      20138,
+      1,
+      "CLIP"
+    ],
+    [
+      1664,
+      20151,
+      0,
+      20195,
+      0,
+      "MODEL"
+    ],
+    [
+      1665,
+      20151,
+      1,
+      20195,
+      1,
+      "CLIP"
+    ],
+    [
+      1666,
+      20195,
+      0,
+      20149,
+      0,
+      "MODEL"
+    ],
+    [
+      1667,
+      20195,
+      1,
+      20149,
+      1,
+      "CLIP"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "Group",
+      "bounding": [
+        -206.1323699951172,
+        -1771.3363037109375,
+        2837.84228515625,
+        2341.239501953125
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 2,
+      "title": "Group",
+      "bounding": [
+        -3080.45849609375,
+        -839.8394165039062,
+        2842.528076171875,
+        1409.8460693359375
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 3,
+      "title": "Group",
+      "bounding": [
+        -3079.764892578125,
+        -1774.110107421875,
+        2844.003173828125,
+        909.7323608398438
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 5,
+      "title": "Group",
+      "bounding": [
+        -3796.908447265625,
+        -1774.62109375,
+        684.596923828125,
+        2347.890869140625
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 6,
+      "title": "Group",
+      "bounding": [
+        2667.27685546875,
+        -1771.2872314453125,
+        520.8964233398438,
+        2337.498779296875
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.2488985702440871,
+      "offset": [
+        2944.907033796099,
+        1742.8867418402729
+      ]
+    },
+    "info": {
+      "name": "workflow",
+      "author": "",
+      "description": "",
+      "version": "1",
+      "created": "2024-09-03T03:36:35.103Z",
+      "modified": "2024-09-04T09:41:58.719Z",
+      "software": "ComfyUI"
+    },
+    "workspace_info": {
+      "id": "KZVX9N-aIayUG-FVT1UQB"
+    },
+    "ue_links": [],
+    "node_versions": {
+      "comfy-core": "0.3.28",
+      "ComfyUI_ADV_CLIP_emb": "63984deefb005da1ba90a1175e21d91040da38ab",
+      "ComfyUI_LayerStyle": "7b326d13e43fc4022cd80e472c7af67027409b1e",
+      "ComfyUI-Inspyrenet-Rembg": "87ac452ef1182e8f35f59b04010158d74dcefd06",
+      "ComfyUI-Crystools": "72e2e9af4a6b9a58ca5d753cacff37ba1ff9bfa8",
+      "Comfyui_Tinktool": "5aa841724d02c5c069e806f92153369abbfd8c79",
+      "ComfyUI-Image-Saver": "f8520bcfe5339ba7b4bb64ba96f6ed03da87fb89",
+      "ComfyUI-Custom-Scripts": "bbda5e52ad580c13ceaa53136d9c2bed9137bd2e",
+      "ComfyUI-RMBG": "164c0833c2628ff18b0dc3ca9fe04deb4a032c0b",
+      "ComfyUI-Easy-Use": "aadbb0b38945eba3e15be6099a7f4e5c0327c175",
+      "was-node-suite-comfyui": "3ed45af34a14551dc28cb3127235cc7197d4633f",
+      "ComfyMath": "c01177221c31b8e5fbc062778fc8254aeb541638",
+      "comfyui_controlnet_aux": "1e9eac6377c882da8bb360c7544607036904362c"
+    },
+    "links_added_by_ue": [],
+    "frontendVersion": "1.25.9",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
 }
